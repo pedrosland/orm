@@ -402,7 +402,7 @@ class Kohana_ORM extends Model implements serializable {
 
 		foreach ($this->rules() as $field => $rules)
 		{
-			if ($this->_changed[$field])
+			if (array_key_exists($field, $this->_changed) && $this->_changed[$field])
 			{
 				$this->_validation->rules($field, $rules);
 			}
